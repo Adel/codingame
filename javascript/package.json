@@ -1,0 +1,21 @@
+{
+  "name": "puzzles",
+  "version": "1.0.0",
+  "description": "codin games puzzles",
+  "main": "index.js",
+  "scripts": {
+    "test": "babel-node node_modules/.bin/jasmine"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "jasmine": "3.0.0"
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0"
+  }
+}
