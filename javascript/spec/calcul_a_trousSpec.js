@@ -5,7 +5,6 @@ import {
 
 describe('Calcul à trous', () => {
 
-
     it('should evaluate expression', () => {
         expect(evaluateExpression(['2','+','8','=','10'])).toBe(true);
         expect(evaluateExpression(['2','+','8','-','4','=','6'])).toBe(true);
@@ -34,7 +33,5 @@ describe('Calcul à trous', () => {
         expect(getCorrectExpression('52? + 8 = 530')).toEqual('522 + 8 = 530');
         expect(getCorrectExpression('?? / 3 = 5')).toEqual('15 / 3 = 5');
         expect(getCorrectExpression('?8 - 71 - 1? = 2')).toEqual('88 - 71 - 15 = 2');
-
-
     });
 });
