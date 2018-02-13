@@ -27,20 +27,20 @@ class Solution {
         }
         HashMap<Integer, Integer> memo = new HashMap<>();
         int max = roots.stream()
-                .map(r -> dps(r, graph, memo))
+                .map(r -> dfs(r, graph, memo))
                 .max(Integer::compareTo)
                 .orElseThrow(RuntimeException::new);
         System.out.println(max);
     }
 
-    protected static int dps(int root, HashMap<Integer, List<Integer>> graph, HashMap<Integer, Integer> memo) {
+    protected static int dfs(int root, HashMap<Integer, List<Integer>> graph, HashMap<Integer, Integer> memo) {
         if (memo.containsKey(root)) {
             return memo.get(root);
         } else if (graph.get(root) == null) {
             return 1;
         } else {
             int max = 1 + graph.get(root).stream()
-                    .map(e -> dps(e, graph, memo))
+                    .map(e -> dfs(e, graph, memo))
                     .max(Integer::compareTo).orElse(0);
             memo.put(root, max);
             return max;

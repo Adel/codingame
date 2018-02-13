@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,14 +14,14 @@ class SolutionTest {
         HashMap<Integer, List<Integer>> graph = new HashMap<>();
         graph.put(1, Arrays.asList(2));
         HashMap<Integer, Integer> memo = new HashMap<>();
-        assertEquals(2, Solution.dps(1, graph, memo));
+        assertEquals(2, Solution.dfs(1, graph, memo));
     }
     @Test void shouldReturnCorrectDpsForDepthOf3() {
         HashMap<Integer, List<Integer>> graph = new HashMap<>();
         graph.put(1, Arrays.asList(2));
         graph.put(2, Arrays.asList(3));
         HashMap<Integer, Integer> memo = new HashMap<>();
-        assertEquals(3, Solution.dps(1, graph, memo));
+        assertEquals(3, Solution.dfs(1, graph, memo));
     }
     @Test void shouldReturnCorrectDpsForDepthOf5() {
         HashMap<Integer, List<Integer>> graph = new HashMap<>();
@@ -32,7 +31,7 @@ class SolutionTest {
         graph.put(4, Arrays.asList(5));
 
         HashMap<Integer, Integer> memo = new HashMap<>();
-        assertEquals(5, Solution.dps(1, graph, memo));
+        assertEquals(5, Solution.dfs(1, graph, memo));
     }
     @Test void shouldReturnCorrectDpsForMultipleChildrenPerParent() {
         HashMap<Integer, List<Integer>> graph = new HashMap<>();
@@ -42,6 +41,6 @@ class SolutionTest {
         graph.put(8, Arrays.asList(10));
 
         HashMap<Integer, Integer> memo = new HashMap<>();
-        assertEquals(5, Solution.dps(1, graph, memo));
+        assertEquals(5, Solution.dfs(1, graph, memo));
     }
 }
