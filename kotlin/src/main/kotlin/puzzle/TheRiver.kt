@@ -1,15 +1,16 @@
 package puzzle
 
 object TheRiver {
-    @JvmStatic
-    fun main(args: Array<String>) {
 
+    fun findMeetingPoint(x: Long, y: Long): Long {
+        val next = {n:Long -> n + n.toString().sumBy { c -> c.toString().toInt() }}
+        var a = x
+        var b = y
+        while(a != b){
+            a = if (a <b) next(a) else a
+            b = if (b < a) next(b) else b
+        }
+        return a
     }
-
-    fun getNext(n: Long): Long = n + n.toString().sumBy { c -> c.toString().toInt() }
-
-    fun findMeetingPoint(x: Long, y: Long): Long =
-            if (x == y) x
-            else findMeetingPoint(if (x < y) getNext(x) else x, if (y < x) getNext(y) else y)
 
 }
